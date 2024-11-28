@@ -1,0 +1,324 @@
+[
+    {
+      "id": "company_1_id",
+      "companyName": "Tech Innovators",
+      "companyLink": "https://techinnovators.com",
+      "description": "A leading software development company focused on AI and ML solutions.",
+      "email": "contact@techinnovators.com",
+      "password": "password1",
+      "phoneNo": "+1234567890",
+      "isHiring": true,
+      "jobPosts": [
+        {
+          "id": "job_1_1_id",
+          "jobTitle": "Machine Learning Engineer",
+          "jobLocation": "New York, NY",
+          "jobType": "Full-time",
+          "jobDescription": "Develop and implement machine learning models to enhance product features.",
+          "image": "https://techinnovators.com/ml_engineer.jpg",
+          "requiredSkills": ["Python", "TensorFlow", "Data Analysis"],
+          "date": "2024-10-21T00:00:00.000Z",
+          "stipend": "80000 USD/year",
+          "moreDetailsLink": "https://techinnovators.com/ml_job"
+        },
+        {
+          "id": "job_1_2_id",
+          "jobTitle": "Software Engineer",
+          "jobLocation": "San Francisco, CA",
+          "jobType": "Part-time",
+          "jobDescription": "Assist in software development and feature implementation.",
+          "image": null,
+          "requiredSkills": ["JavaScript", "React", "Node.js"],
+          "date": "2024-09-18T00:00:00.000Z",
+          "stipend": "50000 USD/year",
+          "moreDetailsLink": "https://techinnovators.com/se_job"
+        }
+      ]
+    },
+    {
+      "id": "company_2_id",
+      "companyName": "FutureGen Healthcare",
+      "companyLink": "https://futuregenhealth.com",
+      "description": "Innovative solutions for healthcare automation and AI-based medical diagnostics.",
+      "email": "careers@futuregenhealth.com",
+      "password": "password2",
+      "phoneNo": "+1987654321",
+      "isHiring": true,
+      "jobPosts": [
+        {
+          "id": "job_2_1_id",
+          "jobTitle": "Data Scientist",
+          "jobLocation": "Boston, MA",
+          "jobType": "Full-time",
+          "jobDescription": "Work on healthcare data analysis and predictive model development.",
+          "image": "https://futuregenhealth.com/data_scientist.jpg",
+          "requiredSkills": ["Python", "R", "Healthcare Data"],
+          "date": "2024-08-10T00:00:00.000Z",
+          "stipend": "95000 USD/year",
+          "moreDetailsLink": "https://futuregenhealth.com/ds_job"
+        }
+      ]
+    },
+    {
+      "id": "company_3_id",
+      "companyName": "EduTech Solutions",
+      "companyLink": "https://edutech.com",
+      "description": "An e-learning platform with AI-driven personalized learning tools.",
+      "email": "jobs@edutech.com",
+      "password": "password3",
+      "phoneNo": "+1123456789",
+      "isHiring": false,
+      "jobPosts": []
+    },
+    {
+      "id": "company_4_id",
+      "companyName": "Green Energy Corp",
+      "companyLink": "https://greenenergy.com",
+      "description": "Provider of sustainable energy solutions and AI-powered energy management.",
+      "email": "hr@greenenergy.com",
+      "password": "password4",
+      "phoneNo": "+1029384756",
+      "isHiring": true,
+      "jobPosts": [
+        {
+          "id": "job_4_1_id",
+          "jobTitle": "Energy Systems Analyst",
+          "jobLocation": "Austin, TX",
+          "jobType": "Full-time",
+          "jobDescription": "Analyze energy consumption patterns and optimize system performance using AI.",
+          "image": null,
+          "requiredSkills": ["AI", "Data Analysis", "Energy Management"],
+          "date": "2024-09-01T00:00:00.000Z",
+          "stipend": "70000 USD/year",
+          "moreDetailsLink": "https://greenenergy.com/esa_job"
+        }
+      ]
+    },
+    {
+      "id": "company_5_id",
+      "companyName": "SmartRetail",
+      "companyLink": "https://smartretail.com",
+      "description": "AI-powered retail solutions for enhanced customer experience.",
+      "email": "work@smartretail.com",
+      "password": "password5",
+      "phoneNo": "+1122334455",
+      "isHiring": true,
+      "jobPosts": [
+        {
+          "id": "job_5_1_id",
+          "jobTitle": "AI Engineer",
+          "jobLocation": "Seattle, WA",
+          "jobType": "Full-time",
+          "jobDescription": "Develop AI-based solutions for customer behavior prediction.",
+          "image": "https://smartretail.com/ai_engineer.jpg",
+          "requiredSkills": ["Python", "AI", "Retail"],
+          "date": "2024-07-15T00:00:00.000Z",
+          "stipend": "85000 USD/year",
+          "moreDetailsLink": "https://smartretail.com/ai_job"
+        }
+      ]
+    },
+    {
+      "id": "company_1_id",
+      "companyName": "NextGen Solutions",
+      "companyLink": "https://nextgensolutions.com",
+      "description": "Leading provider of innovative IT solutions and cloud services.",
+      "email": "info@nextgensolutions.com",
+      "password": "securePassword1",
+      "phoneNo": "+1234509876",
+      "isHiring": true,
+      "jobPosts": [
+        {
+          "id": "job_1_1_id",
+          "jobTitle": "Full Stack Developer",
+          "jobLocation": "Los Angeles, CA",
+          "jobType": "Full-time",
+          "jobDescription": "Develop and maintain web applications using modern technologies.",
+          "image": "https://nextgensolutions.com/fullstack_dev.jpg",
+          "requiredSkills": ["JavaScript", "React", "Node.js"],
+          "date": "2024-10-01T00:00:00.000Z",
+          "stipend": "90000 USD/year",
+          "moreDetailsLink": "https://nextgensolutions.com/fullstack_job"
+        }
+      ]
+    },
+    {
+      "id": "company_2_id",
+      "companyName": "Smart Logistics",
+      "companyLink": "https://smartlogistics.com",
+      "description": "Optimizing supply chain and logistics using AI technology.",
+      "email": "careers@smartlogistics.com",
+      "password": "securePassword2",
+      "phoneNo": "+1987654322",
+      "isHiring": true,
+      "jobPosts": [
+        {
+          "id": "job_2_1_id",
+          "jobTitle": "Logistics Coordinator",
+          "jobLocation": "Chicago, IL",
+          "jobType": "Contract",
+          "jobDescription": "Coordinate logistics operations and improve efficiency.",
+          "image": null,
+          "requiredSkills": ["Logistics", "Communication", "Problem-Solving"],
+          "date": "2024-09-15T00:00:00.000Z",
+          "stipend": "65000 USD/year",
+          "moreDetailsLink": "https://smartlogistics.com/logistics_job"
+        }
+      ]
+    },
+    {
+      "id": "company_3_id",
+      "companyName": "HealthTech Innovations",
+      "companyLink": "https://healthtechinnovations.com",
+      "description": "Developing cutting-edge health technology solutions.",
+      "email": "jobs@healthtechinnovations.com",
+      "password": "securePassword3",
+      "phoneNo": "+1234567891",
+      "isHiring": false,
+      "jobPosts": []
+    },
+    {
+      "id": "company_4_id",
+      "companyName": "EcoFriendly Products",
+      "companyLink": "https://ecofriendlyproducts.com",
+      "description": "Manufacturing sustainable and eco-friendly consumer products.",
+      "email": "hr@ecofriendlyproducts.com",
+      "password": "securePassword4",
+      "phoneNo": "+1029384757",
+      "isHiring": true,
+      "jobPosts": [
+        {
+          "id": "job_4_1_id",
+          "jobTitle": "Product Manager",
+          "jobLocation": "Denver, CO",
+          "jobType": "Full-time",
+          "jobDescription": "Lead product development initiatives from concept to launch.",
+          "image": null,
+          "requiredSkills": ["Product Management", "Leadership", "Market Research"],
+          "date": "2024-10-05T00:00:00.000Z",
+          "stipend": "95000 USD/year",
+          "moreDetailsLink": "https://ecofriendlyproducts.com/product_manager_job"
+        }
+      ]
+    },
+    {
+      "id": "company_5_id",
+      "companyName": "FinTech Innovations",
+      "companyLink": "https://fintechinnovations.com",
+      "description": "Transforming financial services through technology and innovation.",
+      "email": "contact@fintechinnovations.com",
+      "password": "securePassword5",
+      "phoneNo": "+1122334456",
+      "isHiring": true,
+      "jobPosts": [
+        {
+          "id": "job_5_1_id",
+          "jobTitle": "Financial Analyst",
+          "jobLocation": "Miami, FL",
+          "jobType": "Full-time",
+          "jobDescription": "Analyze financial data and assist in strategic planning.",
+          "image": "https://fintechinnovations.com/financial_analyst.jpg",
+          "requiredSkills": ["Excel", "Financial Modeling", "Data Analysis"],
+          "date": "2024-08-20T00:00:00.000Z",
+          "stipend": "75000 USD/year",
+          "moreDetailsLink": "https://fintechinnovations.com/financial_analyst_job"
+        }
+      ]
+    },
+    {
+      "id": "company_6_id",
+      "companyName": "SmartHome Tech",
+      "companyLink": "https://smarthome.com",
+      "description": "Creating innovative smart home devices for modern living.",
+      "email": "info@smarthome.com",
+      "password": "securePassword6",
+      "phoneNo": "+1346792580",
+      "isHiring": true,
+      "jobPosts": [
+        {
+          "id": "job_6_1_id",
+          "jobTitle": "IoT Developer",
+          "jobLocation": "San Jose, CA",
+          "jobType": "Full-time",
+          "jobDescription": "Design and develop IoT applications for smart home devices.",
+          "image": null,
+          "requiredSkills": ["C++", "Embedded Systems", "Networking"],
+          "date": "2024-09-25T00:00:00.000Z",
+          "stipend": "85000 USD/year",
+          "moreDetailsLink": "https://smarthome.com/iot_developer_job"
+        }
+      ]
+    },
+    {
+      "id": "company_7_id",
+      "companyName": "Data Insights Inc.",
+      "companyLink": "https://datainsights.com",
+      "description": "Providing data analytics solutions for businesses.",
+      "email": "careers@datainsights.com",
+      "password": "securePassword7",
+      "phoneNo": "+1432167890",
+      "isHiring": true,
+      "jobPosts": [
+        {
+          "id": "job_7_1_id",
+          "jobTitle": "Data Analyst",
+          "jobLocation": "Seattle, WA",
+          "jobType": "Full-time",
+          "jobDescription": "Analyze and interpret complex data sets to inform business decisions.",
+          "image": "https://datainsights.com/data_analyst.jpg",
+          "requiredSkills": ["SQL", "Python", "Data Visualization"],
+          "date": "2024-09-12T00:00:00.000Z",
+          "stipend": "70000 USD/year",
+          "moreDetailsLink": "https://datainsights.com/data_analyst_job"
+        }
+      ]
+    },
+    {
+      "id": "company_8_id",
+      "companyName": "Cloud Storage Solutions",
+      "companyLink": "https://cloudstoragesolutions.com",
+      "description": "Revolutionizing cloud storage with secure and scalable solutions.",
+      "email": "info@cloudstoragesolutions.com",
+      "password": "securePassword8",
+      "phoneNo": "+1234567893",
+      "isHiring": true,
+      "jobPosts": [
+        {
+          "id": "job_8_1_id",
+          "jobTitle": "Cloud Engineer",
+          "jobLocation": "Austin, TX",
+          "jobType": "Full-time",
+          "jobDescription": "Design and manage cloud-based systems and infrastructure.",
+          "image": null,
+          "requiredSkills": ["AWS", "Azure", "DevOps"],
+          "date": "2024-09-30T00:00:00.000Z",
+          "stipend": "92000 USD/year",
+          "moreDetailsLink": "https://cloudstoragesolutions.com/cloud_engineer_job"
+        }
+      ]
+    },
+    {
+      "id": "company_9_id",
+      "companyName": "Urban Agriculture Co.",
+      "companyLink": "https://urbanagriculture.com",
+      "description": "Innovating urban farming techniques and sustainable agriculture.",
+      "email": "hr@urbanagriculture.com",
+      "password": "securePassword9",
+      "phoneNo": "+1509876543",
+      "isHiring": true,
+      "jobPosts": [
+        {
+          "id": "job_9_1_id",
+          "jobTitle": "Agronomy Specialist",
+          "jobLocation": "Portland, OR",
+          "jobType": "Full-time",
+          "jobDescription": "Research and develop urban farming methods to increase yields.",
+          "image": null,
+          "requiredSkills": ["Agronomy", "Research", "Sustainability"],
+          "date": "2024-10-10T00:00:00.000Z",
+          "stipend": "78000 USD/year",
+          "moreDetailsLink": "https://urbanagriculture.com/agronomy_specialist_job"
+        }
+      ]
+    }
+]

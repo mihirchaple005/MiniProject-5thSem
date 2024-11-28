@@ -1,0 +1,140 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+// model for admin
+model Admin {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  adminName   String
+  email       String   @unique
+  password    String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// models for students and related data 
+model Student {
+  id           String    @id @default(auto()) @map("_id") @db.ObjectId
+  clerkId      String    @unique
+  studentName  String    @unique
+  email        String    @unique 
+  phone        String    @unique
+  linkedin     String?
+  github       String?
+  collegeClub  String[]
+  collegeEmail String
+  resumeData   ResumeData? @relation(fields: [resumeDataId], references: [id])
+  resumeDataId  String?   @unique @db.ObjectId 
+  password     String
+  isAlumni     Boolean   @default(false)
+  posts        Post[]    @relation("StudentPosts") // Added relation name
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  messages      Message[] @relation
+  // Conversation Conversation[] @relation("Conversations")
+}
+
+model ResumeData {
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
+  resumeLink     String
+  skills         String[]
+  projects       String[]
+  education      String[]
+  certifications String[]
+  awards         String[]
+  isInterned     Boolean  @default(false)
+  Student Student[]
+}
+
+model Post {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String
+  image       String?
+  link        String?
+  date        DateTime  @default(now())
+  student     Student?  @relation("StudentPosts", fields: [createdBy], references: [id]) // Back reference to Student
+  createdBy   String?   @db.ObjectId  // Can be an ID of the user/student who created the post
+}
+
+// models for company and related data
+model Company {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  companyName String    @unique
+  companyLink String    @unique
+  description String
+  email       String    @unique
+  password    String
+  phoneNo     String    @unique
+  isHiring    Boolean   @default(false)
+  jobPosts    JobForNewHirings[] @relation("CompanyJobs")  // Added relation name
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+// JobForNewHirings[] @relation("CompanyJobs") // Added relation name
+
+model JobForNewHirings {
+  id               String    @id @default(auto()) @map("_id") @db.ObjectId
+  jobTitle         String
+  jobLocation      String
+  jobType          String
+  jobDescription   String
+  image            String?
+  requiredSkills   String[]
+  stipend          String
+  moreDetailsLink  String
+  date             DateTime @default(now())
+  company          Company?  @relation("CompanyJobs", fields: [companyId], references: [id]) // Back reference
+  companyId        String    @unique @db.ObjectId
+  
+}
+
+// model for community
+// model Community {
+//   id                 String   @id @default(auto()) @map("_id") @db.ObjectId
+//   communityName      String   @unique
+//   description        String
+//   communityCreator   String   // Creator name or can reference Student model
+//   communityLink      String   @unique
+//   members            Student[] 
+//   creatorCollegeEmail String
+//   password           String
+//   status             String   @default("active")
+//   createdAt          DateTime @default(now())
+//   updatedAt          DateTime @updatedAt
+// }
+
+
+model Message {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  text           String
+  conversationId String   @db.ObjectId
+  userId         String   @db.ObjectId
+  conversation Conversation @relation(fields: [conversationId], references: [id])
+  user           Student  @relation(fields: [userId], references: [id])
+  createdAt      DateTime @default(now())
+}
+
+
+model Conversation {
+  id            String           @id @default(auto()) @map("_id") @db.ObjectId
+  // participants  Student[]        @relation("Conversations")
+  messages      Message[]        @relation()
+  createdAt     DateTime         @default(now())
+  updatedAt     DateTime         @updatedAt
+}
+
