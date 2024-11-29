@@ -29,22 +29,27 @@ model Admin {
 model Student {
   id           String    @id @default(auto()) @map("_id") @db.ObjectId
   clerkId      String    @unique
-  studentName  String    @unique
-  email        String    @unique 
-  phone        String    @unique
+  studentName  String?  
+  email        String    
+  phone        String?    @unique
   linkedin     String?
   github       String?
-  collegeClub  String[]
-  collegeEmail String
+  collegeClub  String[]   @default([])
+  collegeEmail String?
   resumeData   ResumeData? @relation(fields: [resumeDataId], references: [id])
-  resumeDataId  String?   @unique @db.ObjectId 
-  password     String
+  resumeDataId  String?    @db.ObjectId 
   isAlumni     Boolean   @default(false)
   posts        Post[]    @relation("StudentPosts") // Added relation name
   createdAt    DateTime  @default(now())
   updatedAt    DateTime  @updatedAt
-  messages      Message[] @relation
-  // Conversation Conversation[] @relation("Conversations")
+  
+   conversationIds String[] @db.ObjectId
+  conversations Conversation[] @relation(fields: [conversationIds], references: [id])
+
+  seenMessageIds String[] @db.ObjectId
+  seenMessages Message[] @relation("Seen", fields: [seenMessageIds], references: [id])
+  
+  messages Message[]
 }
 
 model ResumeData {
@@ -93,8 +98,8 @@ model JobForNewHirings {
   jobLocation      String
   jobType          String
   jobDescription   String
-  image            String?
-  requiredSkills   String[]
+  image            String?    @default("https://assessmentcollege.com/wp-content/uploads/2020/01/jobs-in-demand.jpg")
+  requiredSkills   String[]  
   stipend          String
   moreDetailsLink  String
   date             DateTime @default(now())
@@ -119,22 +124,34 @@ model JobForNewHirings {
 // }
 
 
-model Message {
-  id             String   @id @default(auto()) @map("_id") @db.ObjectId
-  text           String
-  conversationId String   @db.ObjectId
-  userId         String   @db.ObjectId
-  conversation Conversation @relation(fields: [conversationId], references: [id])
-  user           Student  @relation(fields: [userId], references: [id])
-  createdAt      DateTime @default(now())
+model Conversation {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  created_at DateTime @default(now())
+  lastMessageAt DateTime @default(now())
+  name String?
+  isGroup Boolean?
+
+  messageIds String[] @db.ObjectId
+  messages Message[]
+
+  userIds String[] @db.ObjectId
+  students Student[] @relation(fields: [userIds], references: [id])
 }
 
+model Message {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  body String?
+  image String?
+  created_at DateTime @default(now())
 
-model Conversation {
-  id            String           @id @default(auto()) @map("_id") @db.ObjectId
-  // participants  Student[]        @relation("Conversations")
-  messages      Message[]        @relation()
-  createdAt     DateTime         @default(now())
-  updatedAt     DateTime         @updatedAt
+  seenIds String[] @db.ObjectId
+  seen Student[] @relation("Seen", fields: [seenIds], references: [id])
+
+  conversationId String @db.ObjectId
+  conversation Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+
+  senderId String @db.ObjectId
+  sender Student @relation(fields: [senderId], references: [id], onDelete: Cascade)
+  
 }
 

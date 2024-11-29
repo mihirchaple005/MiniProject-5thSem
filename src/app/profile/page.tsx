@@ -1,10 +1,13 @@
 import React from 'react'
 import ProfileForm from './ProfileForm'
+import { getSelf } from '../../../lib/auth-service'
 
-function Profile() {
+async function Profile() {
+  const self = await getSelf()
+
   return (
     <div>
-        <ProfileForm />
+        <ProfileForm student={self}/>
     </div>
   )
 }

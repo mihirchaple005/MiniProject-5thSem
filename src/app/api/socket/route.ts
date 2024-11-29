@@ -7,7 +7,7 @@ export async function GET(req: NextApiRequest, res: any): Promise<void> {
   if (!io) {
     io = new Server(res.socket.server, {
       cors: {
-        origin: "http://localhost:3000/community", // Your frontend URL
+        origin: "http://localhost:3001/community", // Your frontend URL
         methods: ["GET", "POST"],
       },
     });

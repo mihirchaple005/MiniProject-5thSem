@@ -1,17 +1,17 @@
 "use client";
 import React, { useState } from "react";
+import { createJobForNewHiring } from "../../../../prisma/JobForNewHirings";
 
-function CreateNewHiring() {
+async function CreateNewHiring() {
   const [formData, setFormData] = useState({
     jobTitle: "",
-    openings: "",
-    dueDate: "",
+    jobLocation: "",
+    jobType: "",
     jobDescription: "",
-    skillsRequired: "",
-    eligibility: "",
-    experienceLevel: "",
-    salaryRange: "",
-    location: "",
+    requiredSkills: "",
+    stipend: "",
+    moreDetailsLink: "",
+    companyId: "", // Assuming you'll pass this as part of the form
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -25,18 +25,28 @@ function CreateNewHiring() {
     e.preventDefault();
     console.log(formData);
     // Logic to submit the form data to the backend server here
+    createJobForNewHiring(formData.jobTitle, 
+      formData.jobLocation, 
+      formData.jobType, 
+      formData.jobDescription, 
+      formData.requiredSkills.split(","), 
+      formData.stipend, 
+      formData.moreDetailsLink, 
+      ).then((res) => console.log(res));
+
+
     alert("New hiring post created!");
   };
 
   return (
     <div className="min-h-screen dark:bg-gray-900 p-6">
       <h2 className="text-2xl font-bold text-neutral-200 mb-6">Create New Hiring Post</h2>
-      
+
       <form onSubmit={handleSubmit} className="bg-gray-800 p-6 rounded-lg space-y-4">
         {/* Job Title */}
         <div>
           <label htmlFor="jobTitle" className="block text-sm font-medium text-neutral-300 mb-2">
-            Job Title/Role
+            Job Title
           </label>
           <input
             type="text"
@@ -49,32 +59,32 @@ function CreateNewHiring() {
           />
         </div>
 
-        {/* Number of Openings */}
+        {/* Job Location */}
         <div>
-          <label htmlFor="openings" className="block text-sm font-medium text-neutral-300 mb-2">
-            Number of Openings
+          <label htmlFor="jobLocation" className="block text-sm font-medium text-neutral-300 mb-2">
+            Job Location
           </label>
           <input
-            type="number"
-            id="openings"
-            name="openings"
-            value={formData.openings}
+            type="text"
+            id="jobLocation"
+            name="jobLocation"
+            value={formData.jobLocation}
             onChange={handleChange}
             required
             className="w-full p-2 bg-gray-700 text-white rounded"
           />
         </div>
 
-        {/* Due Date */}
+        {/* Job Type */}
         <div>
-          <label htmlFor="dueDate" className="block text-sm font-medium text-neutral-300 mb-2">
-            Due Date (Last date to apply)
+          <label htmlFor="jobType" className="block text-sm font-medium text-neutral-300 mb-2">
+            Job Type (e.g., Full-time, Part-time, Internship)
           </label>
           <input
-            type="date"
-            id="dueDate"
-            name="dueDate"
-            value={formData.dueDate}
+            type="text"
+            id="jobType"
+            name="jobType"
+            value={formData.jobType}
             onChange={handleChange}
             required
             className="w-full p-2 bg-gray-700 text-white rounded"
@@ -97,16 +107,16 @@ function CreateNewHiring() {
           />
         </div>
 
-        {/* Skills Required */}
+        {/* Required Skills */}
         <div>
-          <label htmlFor="skillsRequired" className="block text-sm font-medium text-neutral-300 mb-2">
-            Skills Required (Prerequisites)
+          <label htmlFor="requiredSkills" className="block text-sm font-medium text-neutral-300 mb-2">
+            Required Skills
           </label>
           <input
             type="text"
-            id="skillsRequired"
-            name="skillsRequired"
-            value={formData.skillsRequired}
+            id="requiredSkills"
+            name="requiredSkills"
+            value={formData.requiredSkills}
             onChange={handleChange}
             required
             placeholder="E.g. JavaScript, React, Python, etc."
@@ -114,68 +124,50 @@ function CreateNewHiring() {
           />
         </div>
 
-        {/* Eligibility Criteria */}
+        {/* Stipend */}
         <div>
-          <label htmlFor="eligibility" className="block text-sm font-medium text-neutral-300 mb-2">
-            Eligibility Criteria
+          <label htmlFor="stipend" className="block text-sm font-medium text-neutral-300 mb-2">
+            Stipend
           </label>
           <input
             type="text"
-            id="eligibility"
-            name="eligibility"
-            value={formData.eligibility}
+            id="stipend"
+            name="stipend"
+            value={formData.stipend}
             onChange={handleChange}
-            required
-            placeholder="E.g. Minimum CGPA, department, etc."
+            placeholder="E.g. 50000 INR/month"
             className="w-full p-2 bg-gray-700 text-white rounded"
           />
         </div>
 
-        {/* Experience Level */}
+        {/* More Details Link */}
         <div>
-          <label htmlFor="experienceLevel" className="block text-sm font-medium text-neutral-300 mb-2">
-            Experience Level (If applicable)
+          <label htmlFor="moreDetailsLink" className="block text-sm font-medium text-neutral-300 mb-2">
+            More Details Link
           </label>
           <input
-            type="text"
-            id="experienceLevel"
-            name="experienceLevel"
-            value={formData.experienceLevel}
+            type="url"
+            id="moreDetailsLink"
+            name="moreDetailsLink"
+            value={formData.moreDetailsLink}
             onChange={handleChange}
-            placeholder="E.g. Entry-level, Mid-level, Senior"
+            placeholder="E.g. https://company-website.com"
             className="w-full p-2 bg-gray-700 text-white rounded"
           />
         </div>
 
-        {/* Salary Range */}
+        {/* Company ID */}
         <div>
-          <label htmlFor="salaryRange" className="block text-sm font-medium text-neutral-300 mb-2">
-            Salary Range (Optional)
+          <label htmlFor="companyId" className="block text-sm font-medium text-neutral-300 mb-2">
+            Company ID (Optional)
           </label>
           <input
             type="text"
-            id="salaryRange"
-            name="salaryRange"
-            value={formData.salaryRange}
+            id="companyId"
+            name="companyId"
+            value={formData.companyId}
             onChange={handleChange}
-            placeholder="E.g. $50,000 - $70,000 per annum"
-            className="w-full p-2 bg-gray-700 text-white rounded"
-          />
-        </div>
-
-        {/* Location */}
-        <div>
-          <label htmlFor="location" className="block text-sm font-medium text-neutral-300 mb-2">
-            Job Location
-          </label>
-          <input
-            type="text"
-            id="location"
-            name="location"
-            value={formData.location}
-            onChange={handleChange}
-            required
-            placeholder="E.g. Remote, New York, etc."
+            placeholder="Company ID"
             className="w-full p-2 bg-gray-700 text-white rounded"
           />
         </div>

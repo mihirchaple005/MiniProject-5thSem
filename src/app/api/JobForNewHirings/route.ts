@@ -10,11 +10,10 @@ export async function POST(req: NextRequest) : Promise<NextResponse> {
             jobLocation,
             jobType,
             jobDescription,
-            image,
             requiredSkills,
             stipend,
             moreDetailsLink,} = await req.json();
-        const newJobForNewHiring = await createJobForNewHiring(jobTitle, jobLocation, jobType, jobDescription, image, requiredSkills, stipend, moreDetailsLink);
+        const newJobForNewHiring = await createJobForNewHiring(jobTitle, jobLocation, jobType, jobDescription,  requiredSkills, stipend, moreDetailsLink);
         return NextResponse.json(newJobForNewHiring, {
             status: 200,
             headers: {

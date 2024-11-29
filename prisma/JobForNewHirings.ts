@@ -7,7 +7,6 @@ export const createJobForNewHiring = async (
   jobLocation  :    string,
   jobType       :   string,
   jobDescription :  string,
-  image       :  string,
   requiredSkills :  string[],
   stipend      :    string,
   moreDetailsLink : string,
@@ -18,7 +17,6 @@ export const createJobForNewHiring = async (
             jobLocation: jobLocation,
             jobType: jobType,
             jobDescription: jobDescription,
-            image: image,
             requiredSkills: requiredSkills,
             stipend: stipend,
             moreDetailsLink: moreDetailsLink

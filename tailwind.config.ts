@@ -17,10 +17,12 @@ const config: Config = {
     extend: {
       boxShadow: {
         input: `0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)`,
+        custom: "0 4px 6px rgba(0, 0, 0, 0.1)",
       },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        customHover: "#f9fafb",
       },
       animation: {
         scroll:

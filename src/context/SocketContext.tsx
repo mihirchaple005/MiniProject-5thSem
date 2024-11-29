@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useState, ReactNode } from
 import { Socket } from "socket.io-client";
 import { useAuthContext } from "./AuthContext";
 import io from "socket.io-client";
+import { DefaultEventsMap } from "socket.io";
 
 
 // Define the types for context values
@@ -27,7 +28,7 @@ export const useSocketContext = (): SocketContextType => {
 };
 
 export const SocketContextProvider: React.FC<SocketContextProviderProps> = ({ children }) => {
-  const [socket, setSocket] = useState<typeof Socket | null>(null);
+  const [socket, setSocket] = useState<Socket | null>(null);
   const [onlineUsers, setOnlineUsers] = useState<string[]>([]);
   const { authUser } = useAuthContext();
 

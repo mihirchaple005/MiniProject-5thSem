@@ -1,10 +1,11 @@
+import { ClerkProvider } from '@clerk/nextjs'
 import React from 'react'
 
 const AuthLayout = ({children} : {children: React.ReactNode}) => {
   return (
-    <div className='flex items-center justify-center w-full'>
+      <div className='flex items-center justify-center w-full'>
         {children}
-    </div>
+      </div>
   )
 }
 

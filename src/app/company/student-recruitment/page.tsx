@@ -1,10 +1,13 @@
 import React from 'react'
 import { SidebarDemo } from "./recruitmentLayout"
+import { getSelf } from '../../../../lib/auth-service'
 
-function Home() {
+async function Home() {
+  const self = await getSelf()
   return (
+    
     <div>
-        <SidebarDemo />
+        <SidebarDemo  />
     </div>
   )
 }

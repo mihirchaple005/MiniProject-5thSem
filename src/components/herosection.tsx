@@ -22,7 +22,7 @@ function herosection() {
         },
         {
           name: "Community",
-          link: "/community",
+          link: "/community/users",
           icon: (
             <IconMessage className="h-4 w-4 text-neutral-500 dark:text-white" />
           ),
